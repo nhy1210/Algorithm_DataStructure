@@ -33,7 +33,7 @@ void printList(Node* head)
 	cout<<"NUL"<<endl;
 }
 //This method is for dummy node
-Node* mergesortLinkedList(Node* head1, Node* head2)
+/*Node* mergesortLinkedList(Node* head1, Node* head2)
 {
 	Node* ret;
 	if(head1->data > head2->data)
@@ -76,7 +76,29 @@ Node* mergesortLinkedList(Node* head1, Node* head2)
 		head2 = head2->next;
 	}
 	return retRef;
+}*/
+//Using recursion
+Node* mergesortLinkedList(Node* head1, Node* head2)
+{
+	if(!head1 ) return head2;
+	if (!head2) return head1;
+	if (!head1 && !head2) return NULL;
+	Node* ret;
+	if(head1->data < head2->data)
+	{
+		ret = head1;
+		ret->next = mergesortLinkedList(head1->next, head2);
+
+	}
+	else 
+	{
+		ret = head2;
+		ret->next = mergesortLinkedList(head1, head2->next);
+	}
+	return ret;
+
 }
+
 int main(){
 	Node* head1 = NULL;
 	Node* head2 = NULL;
