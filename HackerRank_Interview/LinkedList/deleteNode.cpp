@@ -57,6 +57,7 @@ int main(){
 
 	Node* head = NULL;
 	head = appendNode(head, 2);
+	
 	head = appendNode(head, 20);
 	head = appendNode(head, 3);
 	head = appendNode(head, 30);
